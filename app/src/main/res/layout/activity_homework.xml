@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".activity.HomeWorkstep">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#75C913">
+
+        <TextView
+            android:id="@+id/back_main"
+            android:layout_width="50dp"
+            android:layout_height="35dip"
+            android:layout_gravity="center_vertical|left"
+            android:background="@mipmap/toolbar_setting"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center"
+            android:text="课程表"
+            android:textColor="#000000"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/add_homework"
+            android:layout_width="50dp"
+            android:layout_height="35dip"
+            android:layout_gravity="center_vertical|right"
+            android:background="@mipmap/toolbar_setting"
+            android:gravity="center"
+            android:text="添加作业"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="10px"
+        app:cardCornerRadius="20px"
+        app:cardElevation="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="30dp"
+            android:text="   新增作业:"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textSize="15dp"
+            android:id="@+id/add_thiswork"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v4.widget.NestedScrollView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            >
+            <com.baoyachi.stepview.VerticalStepView
+                android:background="#00beaf"
+                android:id="@+id/step_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:layout_centerInParent="true"
+
+                android:textColor="@android:color/white"
+                />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

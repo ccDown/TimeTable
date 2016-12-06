@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00beaf"
+    android:padding="10px">
+
+    <TextView
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:text="请设置邮件信息"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_weight="1"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:hint="请输入收件人"
+                android:id="@+id/email_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_weight="1"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:hint="请输入发件人"
+                android:id="@+id/email_sender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="请输入主题"
+            android:id="@+id/email_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="请输入内容"
+            android:id="@+id/email_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.design.widget.TextInputLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:background="#097e77"
+            android:layout_marginLeft="100px"
+            android:layout_weight="1"
+            android:text="取消"
+            android:id="@+id/cancel_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:background="#097e77"
+            android:layout_marginLeft="50px"
+            android:layout_toRightOf="@id/cancel_email"
+            android:layout_weight="1"
+            android:text="确定"
+            android:id="@+id/commit_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+</LinearLayout>

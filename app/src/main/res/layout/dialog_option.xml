@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#75C913"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:text="请选择要进行的操作"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/email"
+            android:layout_weight="1"
+            android:layout_margin="20px"
+            app:cardElevation="8px"
+            app:cardCornerRadius="8px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="发邮件"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/call"
+        android:layout_weight="1"
+        android:layout_margin="20px"
+        app:cardElevation="8px"
+        app:cardCornerRadius="8px"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:text="拨打电话"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/indate"
+            android:layout_weight="1"
+            android:layout_margin="20px"
+            app:cardElevation="8px"
+            app:cardCornerRadius="8px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="修改课程表信息"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

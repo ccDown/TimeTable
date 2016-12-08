@@ -41,6 +41,8 @@
         <activity android:name=".activity.DialogActivity"
             android:launchMode="singleInstance"
             />
+        <activity android:name=".PanelActivity"
+            />
         <activity android:name=".activity.HomeWorkstep"
             android:launchMode="singleTask"/>
         <activity android:name=".activity.AlarmAlert"

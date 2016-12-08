@@ -29,7 +29,8 @@
         <TextView
             android:textAlignment="center"
             android:textSize="15dp"
-            android:text="长按课表会弹出当前课表的信息"
+            android:text="长按课表会弹出课表的信息,会出现整张课表
+            的详细信息，可以进行页面的放大缩小"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -44,7 +45,7 @@
         <TextView
             android:textAlignment="center"
             android:textSize="15dp"
-            android:text="两根手指在课表处做出放大的手势会出现整张课表的详细信息"
+            android:text="点击作业可以进行删除操作"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

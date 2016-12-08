@@ -11,7 +11,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 import cn.bmob.v3.listener.SaveListener;
-import kuan.com.timetable.MainActivity;
+import kuan.com.timetable.PanelActivity;
 import kuan.com.timetable.R;
 import kuan.com.timetable.base.BaseActivity;
 
@@ -59,7 +59,7 @@ public class LoginActivity extends BaseActivity {
                         public void done(BmobUser bmobUser, BmobException e) {
                             if (bmobUser!=null){
                                 Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                startActivity(new Intent(LoginActivity.this, PanelActivity.class));
                                 finish();
                             }else{
                                 Toast.makeText(LoginActivity.this,"登陆失败\n原因是\n"+e.toString(),Toast.LENGTH_SHORT).show();

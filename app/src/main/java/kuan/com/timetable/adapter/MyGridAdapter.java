@@ -23,7 +23,7 @@ import android.widget.TextView;
 import kuan.com.timetable.R;
 import kuan.com.timetable.database.MySqlHelper;
 
-import static kuan.com.timetable.MainActivity.getViewBitmap;
+import static kuan.com.timetable.PanelActivity.getViewBitmap;
 import static kuan.com.timetable.R.id.maingrid_tname;
 
 /**
@@ -171,7 +171,8 @@ public class MyGridAdapter extends BaseAdapter {
                             contentValues.put("tphone", infotphone.getText().toString());
                             contentValues.put("temail", infotemail.getText().toString());
                             contentValues.put("taddress", infotaddress.getText().toString());
-                            int a = sqLiteDatabase.update("info", contentValues, "id" + "= ?", new String[]{Integer.toString(position)});
+                            int a = sqLiteDatabase.update("info", contentValues, "id" + "= ?",
+                                    new String[]{Integer.toString(position)});
                             Log.e("信息", "" + a);
                             cinfodialog.dismiss();
                             handler.sendEmptyMessage(1);
@@ -192,41 +193,43 @@ public class MyGridAdapter extends BaseAdapter {
 
                     break;
                 case 3:
-
-                    AlertDialog.Builder emailbuilder = new AlertDialog.Builder(context);
-                    View emailinfi = LayoutInflater.from(context).inflate(R.layout.activity_mainitem, null);
-                    emailbuilder.setView(emailinfi);
-                    final EditText emailreceiver = (EditText) emailinfi.findViewById(R.id.email_receiver);
-                    final EditText email_main = (EditText) emailinfi.findViewById(R.id.email_main);
-                    final EditText email_body = (EditText) emailinfi.findViewById(R.id.email_body);
-                    final EditText email_sender = (EditText) emailinfi.findViewById(R.id.email_sender);
-
-                    Button cancel_email = (Button) emailinfi.findViewById(R.id.cancel_email);
-                    Button commit_email = (Button) emailinfi.findViewById(R.id.commit_email);
-                    emaildialog = emailbuilder.show();
-                    cancel_email.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            emaildialog.dismiss();
-                        }
-                    });
-                    commit_email.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            String[] reciver = new String[]{emailreceiver.getText().toString()};
-                            String[] mySbuject = new String[]{email_main.getText().toString()};
-                            String myCc = email_sender.getText().toString();
-                            String mybody = email_body.getText().toString();
-                            Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
-                            myIntent.setType("plain/text");
-                            myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);
-                            myIntent.putExtra(android.content.Intent.EXTRA_CC, myCc);
-                            myIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mySbuject);
-                            myIntent.putExtra(android.content.Intent.EXTRA_TEXT, mybody);
-                            context.startActivity(Intent.createChooser(myIntent, "请选择发送邮件的方式"));
-                            emaildialog.dismiss();
-                        }
-                    });
+                    Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    context.startActivity(Intent.createChooser(myIntent, "请选择发送邮件的方式"));
+                    emaildialog.dismiss();
+//                    AlertDialog.Builder emailbuilder = new AlertDialog.Builder(context);
+//                    View emailinfi = LayoutInflater.from(context).inflate(R.layout.activity_mainitem, null);
+//                    emailbuilder.setView(emailinfi);
+//                    final EditText emailreceiver = (EditText) emailinfi.findViewById(R.id.email_receiver);
+//                    final EditText email_main = (EditText) emailinfi.findViewById(R.id.email_main);
+//                    final EditText email_body = (EditText) emailinfi.findViewById(R.id.email_body);
+//                    final EditText email_sender = (EditText) emailinfi.findViewById(R.id.email_sender);
+//
+//                    Button cancel_email = (Button) emailinfi.findViewById(R.id.cancel_email);
+//                    Button commit_email = (Button) emailinfi.findViewById(R.id.commit_email);
+//                    emaildialog = emailbuilder.show();
+//                    cancel_email.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            emaildialog.dismiss();
+//                        }
+//                    });
+//                    commit_email.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            String[] reciver = new String[]{emailreceiver.getText().toString()};
+//                            String[] mySbuject = new String[]{email_main.getText().toString()};
+//                            String myCc = email_sender.getText().toString();
+//                            String mybody = email_body.getText().toString();
+//                            Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                            myIntent.setType("plain/text");
+//                            myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);
+//                            myIntent.putExtra(android.content.Intent.EXTRA_CC, myCc);
+//                            myIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mySbuject);
+//                            myIntent.putExtra(android.content.Intent.EXTRA_TEXT, mybody);
+//                            context.startActivity(Intent.createChooser(myIntent, "请选择发送邮件的方式"));
+//                            emaildialog.dismiss();
+//                        }
+//                    });
 
                     break;
             }

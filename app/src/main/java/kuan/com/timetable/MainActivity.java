@@ -1,8 +1,6 @@
 package kuan.com.timetable;
 
 import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -14,18 +12,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
-import kuan.com.timetable.activity.DialogActivity;
+import cn.bmob.v3.BmobUser;
 import kuan.com.timetable.activity.HomeWorkstep;
+import kuan.com.timetable.activity.LoginActivity;
 import kuan.com.timetable.adapter.MyGridAdapter;
 import kuan.com.timetable.base.BaseActivity;
 import kuan.com.timetable.database.MySqlHelper;
@@ -33,10 +29,10 @@ import kuan.com.timetable.receiver.AlarmReceive;
 
 import static kuan.com.timetable.activity.AlarmAlert.clockposition;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, View.OnTouchListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView[] main_text;
-    private TextView main_howtouse, main_setting, main_time1, main_time2, main_time3,
-            main_time4, main_time5, main_time6, main_time7, main_time8, main_time9;
+    private TextView main_exit, main_setting, main_time1, main_time2, main_time3,
+            main_time4;
     public static GridView main_gridview;
     private MyGridAdapter myGridAdapter;
     private String[] cname, caddress, tname, tphone, temail, taddress;
@@ -48,7 +44,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             main_gridview.setAdapter(myGridAdapter);
         }
     };
-    private Dialog howtousedialog;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,42 +57,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         main_time2 = (TextView) findViewById(R.id.main_time2);
         main_time3 = (TextView) findViewById(R.id.main_time3);
         main_time4 = (TextView) findViewById(R.id.main_time4);
-        main_time5 = (TextView) findViewById(R.id.main_time5);
-        main_time6 = (TextView) findViewById(R.id.main_time6);
-        main_time7 = (TextView) findViewById(R.id.main_time7);
-        main_time8 = (TextView) findViewById(R.id.main_time8);
-        main_time9 = (TextView) findViewById(R.id.main_time9);
+
         main_gridview = (GridView) findViewById(R.id.main_gridView);
         main_setting = (TextView) findViewById(R.id.setting);
-        main_howtouse = (TextView) findViewById(R.id.howtouse);
+        main_exit = (TextView) findViewById(R.id.exit);
 
     }
 
     public void initData() {
-        main_text = new TextView[]{main_time1, main_time2, main_time3, main_time4, main_time5,
-                main_time6, main_time7, main_time8, main_time9};
+        main_text = new TextView[]{main_time1, main_time2, main_time3, main_time4};
         for (TextView textview : main_text
                 ) {
             textview.setOnClickListener(this);
         }
-        main_howtouse.setOnClickListener(this);
+        main_exit.setOnClickListener(this);
         main_setting.setOnClickListener(this);
         cursor();
         myGridAdapter = new MyGridAdapter(handler, this, cname, caddress, tname, tphone, temail, taddress);
         main_gridview.setAdapter(myGridAdapter);
-        main_gridview.setOnTouchListener(this);
+//        main_gridview.setOnTouchListener(this);
     }
 
     public void cursor() {
         MySqlHelper mySqlHelper = new MySqlHelper(MainActivity.this);
         SQLiteDatabase sqLiteDatabase = mySqlHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("Select * From info ", null);
-        cname = new String[63];
-        caddress = new String[63];
-        tname = new String[63];
-        tphone = new String[63];
-        temail = new String[63];
-        taddress = new String[63];
+        cname = new String[28];
+        caddress = new String[28];
+        tname = new String[28];
+        tphone = new String[28];
+        temail = new String[28];
+        taddress = new String[28];
         if (cursor != null) {
             int i = 0;
             while (cursor.moveToNext()) {
@@ -122,7 +112,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_time1:
-                hour[0] = 8;
+                hour[0] = 7;
                 minute[0] = 30;
                 setTimeImage(1);
                 break;
@@ -132,68 +122,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 setTimeImage(2);
                 break;
             case R.id.main_time3:
-                hour[0] = 10;
+                hour[0] = 13;
                 minute[0] = 30;
                 setTimeImage(3);
                 break;
             case R.id.main_time4:
 
-                hour[0] = 11;
+                hour[0] = 15;
                 minute[0] = 30;
                 setTimeImage(4);
 
                 break;
-            case R.id.main_time5:
 
-                hour[0] = 12;
-                minute[0] = 30;
-                setTimeImage(5);
-
-                break;
-            case R.id.main_time6:
-
-                hour[0] = 13;
-                minute[0] = 30;
-                setTimeImage(6);
-
-                break;
-            case R.id.main_time7:
-
-                hour[0] = 14;
-                minute[0] = 30;
-                setTimeImage(7);
-
-                break;
-            case R.id.main_time8:
-
-                hour[0] = 15;
-                minute[0] = 30;
-                setTimeImage(8);
-
-                break;
-            case R.id.main_time9:
-
-                hour[0] = 16;
-                minute[0] = 30;
-                setTimeImage(9);
-
-                break;
             case R.id.setting:
                 startActivity(new Intent(MainActivity.this, HomeWorkstep.class));
                 break;
 
-            case R.id.howtouse:
+            case R.id.exit:
+                BmobUser.logOut();   //清除缓存用户对象
+                BmobUser currentUser = BmobUser.getCurrentUser(); // 现在的currentUser是null了
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
-                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
-                View howtouse= LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_howtouse,null);
-                Button button=(Button)howtouse.findViewById(R.id.howtouse_cancel);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        howtousedialog.dismiss();
-                    }
-                });
-                howtousedialog=builder.setView(howtouse).show();
         }
 
     }
@@ -238,16 +187,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             alarmManager.cancel(pendingIntent);
             Toast.makeText(MainActivity.this, "取消闹钟", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()){
-            case MotionEvent.ACTION_POINTER_UP:
-                startActivity(new Intent(MainActivity.this, DialogActivity.class));
-                break;
-        }
-        return true;
     }
 
     @Override

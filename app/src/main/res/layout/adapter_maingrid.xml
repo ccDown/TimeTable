@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="90dp"
+    android:layout_height="120dp"
     app:cardCornerRadius="8px"
     app:cardElevation="8px">
 
     <LinearLayout
         android:id="@+id/maingrid_linout"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="120dp"
         android:orientation="vertical"
-        android:scrollbars="vertical"
         >
 
         <RelativeLayout
@@ -24,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="课程名:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
 
@@ -38,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="上课地址:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
 
@@ -52,7 +51,7 @@
 
                 android:layout_height="wrap_content"
                 android:text="教师姓名:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
 
@@ -66,7 +65,7 @@
 
                 android:layout_height="wrap_content"
                 android:text="教师电话:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
 
@@ -80,7 +79,7 @@
 
                 android:layout_height="wrap_content"
                 android:text="教师邮箱:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
 
@@ -94,7 +93,7 @@
 
                 android:layout_height="wrap_content"
                 android:text="教师办公室:"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
         </RelativeLayout>
     </LinearLayout>

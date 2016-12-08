@@ -8,7 +8,7 @@ import android.os.Handler;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
-import kuan.com.timetable.MainActivity;
+import kuan.com.timetable.PanelActivity;
 import kuan.com.timetable.R;
 import kuan.com.timetable.database.MySqlHelper;
 
@@ -30,7 +30,7 @@ public class LoadActicity extends Activity {
                 @Override
                 public void run() {
                     // 允许用户使用应用
-                    startActivity(new Intent(LoadActicity.this, MainActivity.class));
+                    startActivity(new Intent(LoadActicity.this, PanelActivity.class));
                     finish();
                 }
             },LOAD_DISPLAY_TIME);
@@ -41,10 +41,9 @@ public class LoadActicity extends Activity {
                 public void run() {
                     MySqlHelper mySqlHelper=new MySqlHelper(LoadActicity.this);
                     mySqlHelper.getWritableDatabase();
-                    for (int i=0;i<63;i++){
+                    for (int i=0;i<28;i++){
                         mySqlHelper.toinsert(i,"","","","","","");
                     }
-                    SQLiteDatabase sqLiteDatabase=mySqlHelper.getWritableDatabase();
                     startActivity(new Intent(LoadActicity.this, LoginActivity.class));
                     finish();
                 }

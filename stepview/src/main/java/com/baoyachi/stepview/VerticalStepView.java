@@ -19,8 +19,7 @@ import java.util.List;
  * <p>
  * 描述：
  */
-public class VerticalStepView extends LinearLayout implements VerticalStepViewIndicator.OnDrawIndicatorListener
-{
+public class VerticalStepView extends LinearLayout implements VerticalStepViewIndicator.OnDrawIndicatorListener {
     private RelativeLayout mTextContainer;
     private VerticalStepViewIndicator mStepsViewIndicator;
     private List<String> mTexts;
@@ -29,24 +28,20 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
 
 
-    public VerticalStepView(Context context)
-    {
+    public VerticalStepView(Context context) {
         this(context, null);
     }
 
-    public VerticalStepView(Context context, AttributeSet attrs)
-    {
+    public VerticalStepView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public VerticalStepView(Context context, AttributeSet attrs, int defStyleAttr)
-    {
+    public VerticalStepView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    private void init()
-    {
+    private void init() {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.widget_vertical_stepsview, this);
         mStepsViewIndicator = (VerticalStepViewIndicator) rootView.findViewById(R.id.steps_indicator);
         mStepsViewIndicator.setOnDrawListener(this);
@@ -55,8 +50,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-    {
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
@@ -66,8 +60,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param texts
      * @return
      */
-    public VerticalStepView setStepViewTexts(List<String> texts)
-    {
+    public VerticalStepView setStepViewTexts(List<String> texts) {
         mTexts = texts;
         mStepsViewIndicator.setStepNum(mTexts.size());
         return this;
@@ -79,8 +72,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param complectingPosition
      * @return
      */
-    public VerticalStepView setStepsViewIndicatorComplectingPosition(int complectingPosition)
-    {
+    public VerticalStepView setStepsViewIndicatorComplectingPosition(int complectingPosition) {
         mComplectingPosition = complectingPosition;
         mStepsViewIndicator.setComplectingPosition(complectingPosition);
         return this;
@@ -92,8 +84,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param unComplectedTextColor
      * @return
      */
-    public VerticalStepView setStepViewUnComplectedTextColor(int unComplectedTextColor)
-    {
+    public VerticalStepView setStepViewUnComplectedTextColor(int unComplectedTextColor) {
         mUnComplectedTextColor = unComplectedTextColor;
         return this;
     }
@@ -104,8 +95,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param complectedTextColor
      * @return
      */
-    public VerticalStepView setStepViewComplectedTextColor(int complectedTextColor)
-    {
+    public VerticalStepView setStepViewComplectedTextColor(int complectedTextColor) {
         this.mComplectedTextColor = complectedTextColor;
         return this;
     }
@@ -116,8 +106,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param unCompletedLineColor
      * @return
      */
-    public VerticalStepView setStepsViewIndicatorUnCompletedLineColor(int unCompletedLineColor)
-    {
+    public VerticalStepView setStepsViewIndicatorUnCompletedLineColor(int unCompletedLineColor) {
         mStepsViewIndicator.setUnCompletedLineColor(unCompletedLineColor);
         return this;
     }
@@ -128,8 +117,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param completedLineColor
      * @return
      */
-    public VerticalStepView setStepsViewIndicatorCompletedLineColor(int completedLineColor)
-    {
+    public VerticalStepView setStepsViewIndicatorCompletedLineColor(int completedLineColor) {
         mStepsViewIndicator.setCompletedLineColor(completedLineColor);
         return this;
     }
@@ -139,8 +127,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      *
      * @param defaultIcon
      */
-    public VerticalStepView setStepsViewIndicatorDefaultIcon(Drawable defaultIcon)
-    {
+    public VerticalStepView setStepsViewIndicatorDefaultIcon(Drawable defaultIcon) {
         mStepsViewIndicator.setDefaultIcon(defaultIcon);
         return this;
     }
@@ -150,8 +137,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      *
      * @param completeIcon
      */
-    public VerticalStepView setStepsViewIndicatorCompleteIcon(Drawable completeIcon)
-    {
+    public VerticalStepView setStepsViewIndicatorCompleteIcon(Drawable completeIcon) {
         mStepsViewIndicator.setCompleteIcon(completeIcon);
         return this;
     }
@@ -161,8 +147,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      *
      * @param attentionIcon
      */
-    public VerticalStepView setStepsViewIndicatorAttentionIcon(Drawable attentionIcon)
-    {
+    public VerticalStepView setStepsViewIndicatorAttentionIcon(Drawable attentionIcon) {
         mStepsViewIndicator.setAttentionIcon(attentionIcon);
         return this;
     }
@@ -173,42 +158,38 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
      * @param isReverSe default is true
      * @return
      */
-    public VerticalStepView reverseDraw(boolean isReverSe)
-    {
+    public VerticalStepView reverseDraw(boolean isReverSe) {
         this.mStepsViewIndicator.reverseDraw(isReverSe);
         return this;
     }
 
     /**
      * set linePadding  proportion 设置线间距的比例系数
+     *
      * @param linePaddingProportion
      * @return
      */
-    public VerticalStepView setLinePaddingProportion(float linePaddingProportion)
-    {
+    public VerticalStepView setLinePaddingProportion(float linePaddingProportion) {
         this.mStepsViewIndicator.setIndicatorLinePaddingProportion(linePaddingProportion);
         return this;
     }
 
+    public TextView textView;
+
     @Override
-    public void ondrawIndicator()
-    {
+    public void ondrawIndicator() {
         List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
-        if(mTexts != null)
-        {
-            for(int i = 0; i < mTexts.size(); i++)
-            {
-                TextView textView = new TextView(getContext());
+        if (mTexts != null) {
+            for (int i = 0; i < mTexts.size(); i++) {
+                textView = new TextView(getContext());
                 textView.setText(mTexts.get(i));
                 textView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
                 textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-                if(i <= mComplectingPosition)
-                {
+                if (i <= mComplectingPosition) {
                     textView.setTypeface(null, Typeface.BOLD);
                     textView.setTextColor(mComplectedTextColor);
-                } else
-                {
+                } else {
                     textView.setTextColor(mUnComplectedTextColor);
                 }
 

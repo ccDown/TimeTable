@@ -34,6 +34,6 @@ dependencies {
     //3.5.0：请务必查看下面注释[1]
     compile 'cn.bmob.android:bmob-sdk:3.5.3'
     compile project(':stepview')
-
     compile project(path: ':library')
+    compile 'com.github.marcosemiao.maven.plugin.logger:maven-plugin-logger:0.0.1'
 }
